@@ -97,9 +97,7 @@ def crossing(men,women):
          men[d:],women[d:] = women[d:], men[d:]
     return bin_to_float(men),bin_to_float(women)
 
-# Расстояние евклида
-def eculid_old(x1,y1,x2,y2):
-    return ((x1 - x2)**2 +(y1 - y2)**2)**1/2
+
 # Расстояние евклида
 def eculid(x1,x2):
     return ((x1 - x2)**2 )**1/2
@@ -129,20 +127,14 @@ def main():
         for i in range(POP_SIZE):
             jopa.append(selection(nw,fitnes_f,4))
         nw = np.array(jopa)
-
-
-
         #Опреатор кросингвера (скрещивание особей) 
         for j in range(0,POP_SIZE,2):
             nw[j],nw[j + 1] = crossing(nw[j],nw[j + 1])
-        
         # Оператор мутации 
         for x in range(POP_SIZE):
             nw[x] = mutation(nw[x])
         print(q)
         graph(nw,q)
-
-
 
 
 
